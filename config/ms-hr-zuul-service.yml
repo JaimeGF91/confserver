@@ -39,6 +39,9 @@ management:
     web:
       exposure:
         include: '*'
-
+security:
+  oauth:
+    jwt:
+      key: token_secrect_key
 info:
   environment: predeterminado
