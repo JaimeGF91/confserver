@@ -1,12 +1,15 @@
 server:
-  port: 9090
+  port: 8080
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:9001/eureka/
+      defaultZone: ${SPRING_DISCOVERY_SERVER_URI}
+
 security:
+  oauth:
     jwt:
       key: token_secrect_dev_key
+
 info:
   environment: desarrollo

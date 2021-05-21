@@ -7,18 +7,19 @@ spring:
     type: redis
     redis:
       cache-null-values: false
-      time-to-live: 60s
+      time-to-live: 360s
   redis:
-    host: localhost
+    host: ${SPRING_REDIS_HOST}
     port: 6379
     jedis:
       pool:
         max-active: 500
         max-idle: 10
         min-idle: 1
-        max-wait: 60s           
+        max-wait: 60s
+
 server:
-  port: 8989
+  port: 8080
 
 api:
   users-service:
@@ -31,7 +32,7 @@ eureka:
   client:
     registryFetchIntervalSeconds: 1
     serviceUrl:
-      defaultZone: http://localhost:8001/eureka/
+      defaultZone: ${SPRING_DISCOVERY_SERVER_URI}
 
 security:
   oauth:
